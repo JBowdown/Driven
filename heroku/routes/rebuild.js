@@ -8,16 +8,11 @@ const takeshape = require('../services/takeshape')
 
 module.exports = (req, res) => {
 
-	if (!req.query.contentType) {
-		res.status(200).send('Sorry you need to the the content type. ?contentType=cheese')
-		return
-	}
-
 	// Setup the index.
-	const index = algolia.initIndex('cheese');
+	const index = algolia.initIndex('roads');
 
 	// Set the query name.
-	var queryName = 'get' + titleCase(req.query.contentType) + 'List'
+	var queryName = 'getRoadsList'
 
 	// Set the Query for the content type.
 	var query = `{
@@ -26,6 +21,8 @@ module.exports = (req, res) => {
 				_id
 		    address
 		    condition
+		    experience
+		    googleMapsUrl
 		    length
 		    picOfRoad {
 		      _id
@@ -40,7 +37,11 @@ module.exports = (req, res) => {
 		      uploadStatus
 		    }
 		    rating
-		    relationship {
+		    roadDynamic
+		    routeDescription
+		    routeName
+		    speedLimit
+		    states {
 		      _id
 		      name
 		      picOfState {
@@ -51,14 +52,12 @@ module.exports = (req, res) => {
 		        filename
 		        mimeType
 		        path
-		        sourceUrl 
+		        sourceUrl
 		        title
 		        uploadStatus
 		      }
 		      region
 		    }
-		    roadDynamic
-		    streetName
 			}
 		}
 	}

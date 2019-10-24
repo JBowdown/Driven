@@ -24,47 +24,52 @@ module.exports = function(req, res) {
 	var query = ` {
 		${body.data.queryName}(_id: "${body.data.contentId}") {
 			_id
-	    address
-	    condition
-	    length
-	    picOfRoad {
-	      _id
-	      caption
-	      credit
-	      description
-	      filename
-	      mimeType
-	      path
-	      sourceUrl
-	      title
-	      uploadStatus
-	    }
-	    rating
-	    relationship {
-	      _id
-	      name
-	      picOfState {
-	        _id
-	        caption
-	        credit
-	        description
-	        filename
-	        mimeType
-	        path
-	        sourceUrl
-	        title
-	        uploadStatus
-	      }
-	      region
-	    }
-	    roadDynamic
-	    streetName
+			address
+			condition
+			experience
+			googleMapsUrl
+			length
+			picOfRoad {
+				_id
+				caption
+				credit
+				description
+				filename
+				mimeType
+				path
+				sourceUrl
+				title
+				uploadStatus
+			}
+			rating
+			roadDynamic
+			routeDescription
+			routeName
+			speedLimit
+			states {
+				_id
+				name
+				picOfState {
+					_id
+					caption
+					credit
+					description
+					filename
+					mimeType
+					path
+					sourceUrl
+					title
+					uploadStatus
+				}
+				region
 		}
 	}`;
 
 	takeshape(query).then(result => {
 
-		console.log('results', result);
+		console.log('')
+		console.log(result)
+		console.log('')
 
 		var obj = result.data[body.data.queryName];
 		obj.objectID = obj._id
