@@ -15,7 +15,7 @@ var settings = [ 'TAKESHAPE_PROJECTID', 'TAKESHAPE_KEY', 'ALGOLIA_APPID', 'ALGOL
 var hasSettings = true;
 _.each(settings, setting => {
 	if (!process.env[setting]) {
-		console.log('Missing Settings:', setting);
+		console.log('Missing Settings: ', setting);
 		hasSettings = false;
 	}
 })
