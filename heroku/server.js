@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+console.log('here')
 // Check to see if we have the settings we need.
 var settings = [ 'TAKESHAPE_PROJECTID', 'TAKESHAPE_KEY', 'ALGOLIA_APPID', 'ALGOLIA_ADMIN_KEY' ]
 var hasSettings = true;
