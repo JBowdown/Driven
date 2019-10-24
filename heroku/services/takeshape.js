@@ -16,7 +16,7 @@ module.exports = (query) => {
 		}).then(res => {
 
 			return res.json()
-
+ 
 		}).then(res => {
 
 			// When we got data we come here.
